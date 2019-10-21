@@ -1,4 +1,5 @@
 /* eslint-disable prefer-destructuring */
+const fn = Promise.prototype.finally;
 import Preview from './preview';
 
 const preview = new Preview();
@@ -15,3 +16,4 @@ export const raw = preview.api().raw.bind(preview);
 
 export const storiesOf = (...args: any[]) =>
   rawStoriesOf(...args).addParameters({ framework: 'react-native' });
+Promise.prototype.finally = fn;
